@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT Sauron</title>
+    <style>
+        /* General Body Styling */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:1%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('path_to_your_night_city_image.jpg') no-repeat center center/cover;
+            color: white;
+        }
+
+        /* Header Styles with Circular Image */
+        header {
+            background: url('computer-arch-embedded-systems.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+            flex-direction: column;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 30px;
+            width: 150px;
+            height: 150px;
+            background: url('what_is_Computer_Vision.avif') no-repeat center;
+            background-size: cover;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 28px;
+            margin-top: 180px;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        /* Section Styling */
+        section {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            margin: 10px auto;
+            max-width: 1200px;
+        }
+
+        img, video {
+            width: 49%;
+            height: auto;
+            display: block;
+            margin: 5px 0.5%;
+        }
+
+        section:target {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>IOT Sauron</h1>
+    </header>
+    <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#servos">Servos</a>
+        <a href="#system-architecture">System Architecture</a>
+        <a href="#streaming">Streaming</a>
+        <a href="#results">Results</a>
+    </nav>
+    <section id="introduction" class="content">
+        <h2>Introduction</h2>
+        <p>
+            Our project, IoT Sauron, implements a multi-camera system utilizing OpenCV and Raspberry Pi for real-time human tracking. The system includes two strategically positioned cameras on servo-motors that can pivot to track a human subject across the X-Y plane. This setup, inspired by "The Lord of the Rings," aims to provide seamless tracking by switching the active camera as the subject moves between their ranges.
+        </p>
+        <div class="video-container">
+            <video controls>
+                <source src="Embedded_os_video.mp4" type="video/mp4"> 
+            </video>
+        </div>
+        <p style="justify-content: center; text-align: center;">Figure 1: Video of the Embedded OS demonstration.</p>
+    </section>
+    <section id="system-architecture" class="content">
+        <!-- Content for System Architecture -->
+        <h2>System Architecture</h2>
+        <p> The system architecture for this project involves several components which are responsible for exchanging data and information. Each raspberry pi board is responsible for reading a camera feed and controlling their respective servo-motors. However, the difference between these two systems is that the main raspberry pi board  is responsible for acting as a server and client simultaneously. This means it isa actively receiving streams from the other raspberry pi's while also posting it's own stream related information via HTTP. A system architecture diagram for this project is shown below by figure 2. </p>
+        <div class="video-container">
+            <img src="sys_arch.jpg"></img>
+        </div>
+        <p style="justify-content: center; text-align: center;">Figure 2: Overall System Architecture Diagram for Project.</p>
+    </section>
+    <section id="servos" class="content">
+        <h2>Servos</h2>
+        <p>
+            The servos are essential for our IoT Sauron project, allowing the cameras to track moving subjects smoothly and accurately. Initial tests involved basic motion tracking, which evolved to more sophisticated control algorithms like a Proportional Controller (P controller) to reduce servo jitter. This adjustment aims to maintain the object centrally within the frame, enhancing tracking stability. Despite challenges in synchronization and motor noise, recent advancements have significantly improved the responsiveness and precision of our servo mechanisms.
+        </p>
+    </section>
+    <section id="streaming" class="content">
+        <h2>Streaming</h2>
+        <p>
+            The streaming functionality of IoT Sauron is facilitated through UDP socket programming, allowing high-speed video transmission across the network. We employ multithreading to manage concurrent data streams efficiently, enhancing the system's ability to handle video feeds from multiple cameras without significant latency. The integration of Streamlit has also been explored to provide a user-friendly interface for live video feedback.
+        </p>
+    </section>
+    <section id="results" class="content">
+        <h2>Results</h2>
+        <p>
+            The upcoming final demonstration of IoT Sauron aimed to showcase the seamless integration of all components. We expected to display continuous and effective tracking of a human subject, with real-time switching between camera views to maintain consistent monitoring. This demonstration highlighted the project's success in achieving robust real-time tracking, potentially setting a precedent for future developments in automated surveillance technology.
+        </p>
+        <div class="video-container">
+            <video controls>
+                <source src="Embedded_OS_Results.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p style="justify-content: center; text-align: center;">Figure 3: Video of the final system demonstration.</p>
+    </section>
+</body>
+</html>
